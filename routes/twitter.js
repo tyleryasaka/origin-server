@@ -30,7 +30,7 @@ module.exports = function() {
 
     router.get('/statuses/show/:id', function(req, res, next) {
       let { id } = req.params
-      appOnlyClient.get(`statuses/show/${id}`, {})
+      appOnlyClient.get(`statuses/show/${id}`, { tweet_mode: 'extended' })
       .then(function (tweet) {
         res.send(tweet)
       })
