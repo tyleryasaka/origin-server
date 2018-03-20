@@ -32,7 +32,7 @@ module.exports = function() {
       let { id } = req.params
       appOnlyClient.get(`statuses/show/${id}`, {})
       .then(function (tweet) {
-        res.send(tweet.text)
+        res.send(tweet)
       })
       .catch(function (error) {
         next(error)
@@ -50,7 +50,7 @@ module.exports = function() {
     })
     client.post('statuses/update', { status })
     .then(function (tweet) {
-      res.send(tweet.id_str)
+      res.send(tweet)
     })
     .catch(function (error) {
       next(error)
